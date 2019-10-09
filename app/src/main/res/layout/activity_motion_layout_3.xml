@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/motion_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:applyMotionScene="true"
+    app:layoutDescription="@xml/scene_3"
+    app:progress="0.5"
+    app:showPaths="true">
+
+    <Button
+        android:id="@+id/bt_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="开始"
+        app:layout_constraintEnd_toStartOf="@+id/bt_end"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteX="42dp"
+        tools:layout_editor_absoluteY="35dp" />
+
+    <Button
+        android:id="@+id/bt_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="結束"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/bt_start"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="33dp" />
+
+    <!--ImageFilterView -->
+    <!--saturation : 0 = grayscale, 1 = original, 2 = hyper saturated-->
+    <!--contrast : 1 = unchanged, 0 = gray, 2 = high contrast-->
+    <!--warmth : 1 = neutral, 2 = warm (red tint), 0.5 = cold (blue tint)-->
+    <!--crossfade (with app:altSrc)-->
+
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/ifv_image_big"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_image" />
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

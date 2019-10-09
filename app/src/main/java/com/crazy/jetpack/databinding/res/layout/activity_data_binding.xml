@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="androidx.databinding.ObservableArrayMap" />
+
+        <import type="androidx.databinding.ObservableList" />
+
+        <import type="com.crazy.jetpack.databinding.DatabindingActivity.OnClickHandler" />
+
+        <variable
+            name="user"
+            type="com.crazy.entity.User" />
+
+        <variable
+            name="obsUser"
+            type="com.crazy.entity.ObsUser" />
+
+        <variable
+            name="mapUser"
+            type="androidx.databinding.ObservableMap&lt;String,Object>" />
+
+        <variable
+            name="listUser"
+            type="androidx.databinding.ObservableList&lt;Object>" />
+
+        <variable
+            name="objUser"
+            type="com.crazy.entity.ObsObjUser" />
+
+        <variable
+            name="firstName"
+            type="String" />
+
+        <variable
+            name="lastName"
+            type="String" />
+
+        <variable
+            name="handler"
+            type="OnClickHandler" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/headImg"
+            android:layout_width="175dp"
+            android:layout_height="173dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="32dp"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/userId"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_margin="@dimen/dp_5"
+            android:gravity="center"
+            android:text="@{String.valueOf(user.id)}"
+            android:textColor="@android:color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.636"
+            app:layout_constraintStart_toEndOf="@+id/headImg"
+            app:layout_constraintTop_toTopOf="@+id/headImg" />
+
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_margin="@dimen/dp_5"
+            android:gravity="center"
+            android:text="@{user.firstName + '_' +  user.lastName,default=userName}"
+            android:textColor="@android:color/black"
+            app:layout_constraintEnd_toEndOf="@+id/userId"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/userId"
+            app:layout_constraintTop_toBottomOf="@+id/userId" />
+
+        <TextView
+            android:id="@+id/age"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_margin="@dimen/dp_5"
+            android:gravity="center"
+            android:text="@{String.valueOf(user.age),default='3'}"
+            android:textColor="@android:color/black"
+            app:layout_constraintEnd_toEndOf="@+id/userName"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/userName"
+            app:layout_constraintTop_toBottomOf="@+id/userName" />
+
+        <TextView
+            android:id="@+id/otherName"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_margin="@dimen/dp_5"
+            android:gravity="center"
+            android:text="@{firstName + lastName}"
+            app:layout_constraintEnd_toEndOf="@+id/age"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/headImg"
+            app:layout_constraintTop_toBottomOf="@+id/headImg" />
+
+        <Button
+            android:id="@+id/userBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="80dp"
+            android:onClick="@{()->handler.userHandler()}"
+            android:text="Button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/objUserBtn"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/objUserBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            app:layout_constraintBottom_toBottomOf="@+id/userBtn"
+            app:layout_constraintEnd_toStartOf="@+id/button14"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/userBtn" />
+
+        <Button
+            android:id="@+id/button14"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            app:layout_constraintBottom_toBottomOf="@+id/userBtn"
+            app:layout_constraintEnd_toStartOf="@+id/button15"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/objUserBtn" />
+
+        <Button
+            android:id="@+id/button15"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            app:layout_constraintBottom_toBottomOf="@+id/userBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/button14" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toTopOf="@+id/otherName"
+            app:layout_constraintEnd_toEndOf="@+id/age"
+            app:layout_constraintStart_toStartOf="@+id/age"
+            app:layout_constraintTop_toBottomOf="@+id/age" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="coordinatorlayout">CoordinatorLayout</string>
+    <string name="appbar_title">appbar</string>
+    <string name="toolbar_title">详情</string>
+</resources>

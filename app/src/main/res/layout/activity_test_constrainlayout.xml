@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".KtActivity">
+
+
+    <Button
+        android:id="@+id/trans"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:onClick="OnTrans"
+        android:text="平移"
+        app:layout_constraintBaseline_toBaselineOf="@+id/scale"
+        app:layout_constraintEnd_toStartOf="@+id/scale"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/scale"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:onClick="OnScale"
+        android:text="缩放"
+        app:layout_constraintEnd_toStartOf="@+id/rotate"
+        app:layout_constraintStart_toEndOf="@+id/trans"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/rotate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:onClick="OnRotate"
+        android:text="旋转"
+        app:layout_constraintBaseline_toBaselineOf="@+id/scale"
+        app:layout_constraintEnd_toStartOf="@+id/skew"
+        app:layout_constraintStart_toEndOf="@+id/scale" />
+
+    <Button
+        android:id="@+id/skew"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:onClick="OnSkew"
+        android:text="错切"
+        app:layout_constraintBaseline_toBaselineOf="@+id/rotate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/rotate" />
+
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/ic_launcher"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/trans" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

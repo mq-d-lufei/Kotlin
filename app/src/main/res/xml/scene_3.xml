@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <!--ImageFilterView -->
+    <!--saturation : 0 = grayscale, 1 = original, 2 = hyper saturated-->
+    <!--contrast : 1 = unchanged, 0 = gray, 2 = high contrast-->
+    <!--warmth : 1 = neutral, 2 = warm (red tint), 0.5 = cold (blue tint)-->
+    <!--crossfade (with app:altSrc)-->
+
+    <Transition
+        motion:constraintSetEnd="@+id/image_end"
+        motion:constraintSetStart="@+id/image_start"
+        motion:duration="1000">
+        <OnSwipe
+            motion:dragDirection="dragDown"
+            motion:touchAnchorId="@+id/ifv_image_big"
+            motion:touchAnchorSide="top" />
+
+    </Transition>
+
+
+    <ConstraintSet android:id="@+id/image_start">
+        <Constraint
+            android:id="@+id/ifv_image_big"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="@id/image_start">
+            <CustomAttribute
+                motion:attributeName="saturation"
+                motion:customFloatValue="0" />
+        </Constraint>
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/image_end">
+        <Constraint
+            android:id="@+id/ifv_image_big"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent">
+            <CustomAttribute
+                motion:attributeName="saturation"
+                motion:customFloatValue="1" />
+        </Constraint>
+    </ConstraintSet>
+
+</MotionScene>
